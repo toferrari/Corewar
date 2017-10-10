@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdeglain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/07 10:20:37 by mdeglain          #+#    #+#             */
+/*   Updated: 2016/11/10 11:38:55 by mdeglain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char		*ft_strstr(const char *big, const char *little)
+{
+	int		i;
+	int		j;
+	char	*mem;
+
+	i = 0;
+	if (little[i] == '\0')
+		return ((char*)big);
+	while (big[i] != '\0')
+	{
+		j = 0;
+		while (big[i + j] == little[j])
+		{
+			mem = (char *)&big[i];
+			if (little[j + 1] == '\0')
+				return (mem);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
